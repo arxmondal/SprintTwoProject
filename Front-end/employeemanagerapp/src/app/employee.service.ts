@@ -4,12 +4,13 @@ import { Observable } from 'rxjs';
 import { Employee } from './employee';
 import { environment } from 'src/environments/environment';
 
-@Injectable({providedIn: 'root'})
+@Injectable({
+  providedIn: 'root'
+})
 export class EmployeeService {
-  // Base URL for the API server
-  private apiServerUrl = environment.apiBaseUrl;
+  private readonly apiServerUrl: string = environment.apiBaseUrl;
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient) {}
 
   // Get all employees
   public getEmployees(): Observable<Employee[]> {
